@@ -38,7 +38,7 @@ function config($translateProvider) {
 
             // Define all menu elements
             DASHBOARD: 'Salpicadero',
-            EMOTIONS: 'Emotions',
+            EMOTIONS: 'Emociones',
             GRAPHS: 'Gráficos',
             MAILBOX: 'El correo',
             WIDGETS: 'Widgets',

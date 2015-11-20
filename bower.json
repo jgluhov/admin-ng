@@ -1,0 +1,23 @@
+{
+  "name": "admin-ng",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "jgluhov <jgluhov@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-datatables": "~0.5.1",
+    "angular-resource": "~1.4.7",
+    "lodash": "~3.10.1"
+  }
+}
