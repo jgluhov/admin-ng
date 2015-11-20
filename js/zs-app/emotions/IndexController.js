@@ -14,11 +14,9 @@ function EmotionsIndexController($scope, $http, $resource, DTOptionsBuilder, DTC
     DTColumnBuilder.newColumn('name').withTitle('Name'),
     DTColumnBuilder.newColumn('synonyms').withTitle('Synonyms').renderWith(function(data, type, full) {
       if(_.isUndefined(data)) return '';
-      var str = '';
-      _.forEach(data, function(item) {
-        str += item.name + ' '
-      });
-      return str;
+      return _.map(data, function(item) {
+        return item.name;
+      }).join(',');
     }),
     DTColumnBuilder.newColumn('antonym').withTitle('Antonym').renderWith(function(data, type, full) {
       if(_.isUndefined(data)) return '';
