@@ -4,3 +4,6 @@
 .dataTables_wrapper .pagination a:focus {
     outline: none;
 }
+.dataTables_wrapper td button{
+    text-transform: uppercase;
+}

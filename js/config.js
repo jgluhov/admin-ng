@@ -22,8 +22,13 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
   $stateProvider
     .state('emotions', {
       url: "/emotions",
-      templateUrl: "views/emotions.html",
+      templateUrl: "views/emotions/index.html",
       controller: EmotionsIndexController
+    })
+    .state('emotions/:id/edit', {
+      url: "/emotions/edit",
+      templateUrl: "views/emotions/edit.html",
+      controller: EmotionsEditController
     })
     .state('dashboards', {
       url: "/dashboards",

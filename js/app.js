@@ -10,7 +10,7 @@
     'pascalprecht.translate',       // Angular Translate
     'ngIdle',                       // Idle timer
     'ngSanitize',                   // ngSanitize
-  'datatables',                     // Datatables
+    'datatables',                   // Datatables
     'ngResource'                    // Resources
   ])
 })();

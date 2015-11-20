@@ -1,0 +1,3 @@
+function EmotionsEditController($scope) {
+
+}
