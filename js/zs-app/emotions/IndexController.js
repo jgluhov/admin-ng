@@ -21,8 +21,9 @@ function EmotionsIndexController($scope, $sce, $compile, $http, $resource, Const
   }
 
   $scope.dtColumns = [
-    DTColumnBuilder.newColumn('active').withTitle('Active').notSortable().renderWith(function (data, type, full, meta) {
-      return '<button class="btn btn-default" ng-click="delete()">del</button>';
+    DTColumnBuilder.newColumn('active').withTitle('Status').notSortable().renderWith(function (data, type, full, meta) {
+
+      return data === true ? '<span class="badge">active</span>' : '<span class="badge">inactive</span>';
     }),
     DTColumnBuilder.newColumn('name').withTitle('Name').renderWith(function (data, type, full) {
       return data
@@ -36,6 +37,12 @@ function EmotionsIndexController($scope, $sce, $compile, $http, $resource, Const
     DTColumnBuilder.newColumn('antonym').withTitle('Antonym').renderWith(function (data, type, full) {
       if (_.isUndefined(data)) return '';
       return data.name
+    }),
+    DTColumnBuilder.newColumn('antonymSynonyms').withTitle('AntonymSynonyms').renderWith(function (data, type, full) {
+      if (_.isUndefined(data)) return '';
+      return _.map(data, function (item) {
+        return item.name;
+      }).join(',');
     })
     //DTColumnBuilder.newColumn('antonymSynonyms').withTitle('Syn. for ant.').renderWith(function(data, type, full) {
     //  if(_.isUndefined(data)) return '';
@@ -62,3 +69,25 @@ function EmotionsIndexController($scope, $sce, $compile, $http, $resource, Const
   ];
 
 }
+
+//
+//$scope.dtOptions = DTOptionsBuilder.newOptions()
+//  .withOption(
+//  'ajax', {
+//    url: Constants.domains.production + 'emotions_datatable?token=' + Constants.token,
+//    type: 'GET'
+//  })
+//  .withOption('rowCallback', rowCallback)
+//  .withDataProp('data')
+//  .withOption('processing', true)
+//  .withOption('serverSide', true)
+//  .withPaginationType('full_numbers');
+//
+//function rowCallback(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+//  return $compile(nRow)(self)
+//}
+//
+//$scope.dtColumns = [
+//  DTColumnBuilder.newColumn('active').withTitle('Active').notSortable().renderWith(function (data, type, full, meta) {
+//    return '<button class="btn btn-default" ng-click="delete()">del</button>';
+//  }),
