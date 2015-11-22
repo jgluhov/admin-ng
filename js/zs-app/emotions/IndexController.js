@@ -22,7 +22,6 @@ function EmotionsIndexController($scope, $sce, $compile, $http, $resource, Const
 
   $scope.dtColumns = [
     DTColumnBuilder.newColumn('active').withTitle('Status').notSortable().renderWith(function (data, type, full, meta) {
-
       return data === true ? '<span class="badge">active</span>' : '<span class="badge">inactive</span>';
     }),
     DTColumnBuilder.newColumn('name').withTitle('Name').renderWith(function (data, type, full) {
