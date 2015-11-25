@@ -32,7 +32,6 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
     })
     .state('dashboards', {
       url: "/dashboards",
-      abstract: true,
       templateUrl: "views/common/content.html"
     })
     .state('dashboards.dashboard_1', {
@@ -661,20 +660,32 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
       templateUrl: "views/empty_page.html",
       data: {pageTitle: 'Empty page'}
     })
-    .state('login', {
-      url: "/login",
-      templateUrl: "views/login.html",
-      data: {pageTitle: 'Login', specialClass: 'gray-bg'}
+    .state('signin', {
+      url: "/signin",
+      templateUrl: "views/signin.html",
+      controller: SigninController,
+      data: {pageTitle: 'Signin', specialClass: 'gray-bg'},
+      resolve: {
+        loadPlugin: function ($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            {
+              name: 'cgNotify',
+              files: ['css/plugins/angular-notify/angular-notify.min.css', 'js/plugins/angular-notify/angular-notify.min.js']
+            }
+          ]);
+        }
+      }
     })
     .state('login_two_columns', {
       url: "/login_two_columns",
       templateUrl: "views/login_two_columns.html",
       data: {pageTitle: 'Login two columns', specialClass: 'gray-bg'}
     })
-    .state('register', {
-      url: "/register",
-      templateUrl: "views/register.html",
-      data: {pageTitle: 'Register', specialClass: 'gray-bg'}
+    .state('signup', {
+      url: "/signup",
+      templateUrl: "views/signup.html",
+      controller: SignupController,
+      data: {pageTitle: 'Sign up', specialClass: 'gray-bg'}
     })
     .state('lockscreen', {
       url: "/lockscreen",
@@ -1225,6 +1236,8 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
 angular
   .module('inspinia')
   .config(config)
-  .run(function ($rootScope, $state) {
+  .run(function ($rootScope, $state, SessionService) {
+    SessionService.authorize();
+
     $rootScope.$state = $state;
   });

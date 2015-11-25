@@ -19,7 +19,8 @@
       "./bower_components/ng-idle/angular-idle.min.js",
       "./bower_components/datatables/media/js/dataTables.bootstrap.min.js",
       "./bower_components/angular-datatables/dist/angular-datatables.min.js",
-      "./bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js"
+      "./bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js",
+      "./bower_components/angular-local-storage/dist/angular-local-storage.min.js"
     ]
   }
 }

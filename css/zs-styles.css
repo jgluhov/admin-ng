@@ -7,3 +7,9 @@
 .dataTables_wrapper td button{
     text-transform: uppercase;
 }
+.zs-circle {
+    width: 70%;
+}
+.dropdown.zs-dropdown {
+    text-align: center;
+}

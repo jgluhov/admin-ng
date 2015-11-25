@@ -2829,5 +2829,6 @@ angular
     .controller('metricsCtrl', metricsCtrl)
     .controller('sweetAlertCtrl', sweetAlertCtrl)
     .controller('selectCtrl', selectCtrl)
-    .controller('toastrCtrl', toastrCtrl);
+    .controller('toastrCtrl', toastrCtrl)
+    .controller('SessionController', SessionController);
 

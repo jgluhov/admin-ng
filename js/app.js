@@ -11,7 +11,8 @@
     'ngIdle',                       // Idle timer
     'ngSanitize',                   // ngSanitize
     'datatables',                   // Datatables
-    'ngResource'                    // Resources
+    'ngResource',                    // Resources
+    'LocalStorageModule'
   ])
 })();
 
