@@ -102,7 +102,7 @@
                     <li ui-sref-active="active"><a ui-sref="app.invoice">Invoice</a></li>
                 </ul>
             </li>
-            <li ng-class="{active: $state.includes('pages')}">
+            <li ng-class="{active: $state.includes('pages')}" class="sr-only">
                 <a href=""><i class="fa fa-files-o"></i> <span class="nav-label">{{ 'OTHERPAGES' | translate }}</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('pages')}">
                     <li ui-sref-active="active"><a ui-sref="pages.search_results">Search results</a></li>
@@ -116,7 +116,7 @@
                     <li ui-sref-active="active"><a ui-sref="pages.empy_page">Empty page</a></li>
                 </ul>
             </li>
-            <li ng-class="{active: $state.includes('miscellaneous')}">
+            <li ng-class="{active: $state.includes('miscellaneous')}" class="sr-only">
                 <a href=""><i class="fa fa-globe"></i> <span class="nav-label">{{ 'MISCELLANEOUS' | translate }}</span> <span class="label label-info pull-right">NEW</span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('miscellaneous')}">
                     <li ui-sref-active="active"><a ui-sref="miscellaneous.notify">Notification</a></li>
