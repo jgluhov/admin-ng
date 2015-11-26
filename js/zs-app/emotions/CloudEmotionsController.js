@@ -1,0 +1,3 @@
+function CloudEmotionsController($scope) {
+
+}

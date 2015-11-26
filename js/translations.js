@@ -10,6 +10,8 @@ function config($translateProvider) {
             // Define all menu elements
             DASHBOARD: 'Dashboard',
             EMOTIONS: 'Emotions',
+            EMOTIONS_ALL: 'All',
+            EMOTIONS_CLOUD: 'Cloud',
             GRAPHS: 'Graphs',
             MAILBOX: 'Mailbox',
             WIDGETS: 'Widgets',
@@ -39,6 +41,8 @@ function config($translateProvider) {
             // Define all menu elements
             DASHBOARD: 'Salpicadero',
             EMOTIONS: 'Emociones',
+            EMOTIONS_CLOUD: 'Nube',
+            EMOTIONS_ALL: 'Todas',
             GRAPHS: 'Gráficos',
             MAILBOX: 'El correo',
             WIDGETS: 'Widgets',
