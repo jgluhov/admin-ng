@@ -29,7 +29,7 @@
                 <a href=""><i class="fa fa-bar-chart-o"></i> <span class="nav-label">{{ 'EMOTIONS' | translate }}</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('emotions')}">
                     <li ui-sref-active="active"><a ui-sref="emotions.all">{{ 'EMOTIONS_ALL' | translate }}</a></li>
-                    <li ui-sref-active="active"><a ui-sref="emotions.cloud">{{ 'EMOTIONS_CLOUD' | translate }}</a></li>
+                    <li ui-sref-active="active" class="sr-only"><a ui-sref="emotions.cloud">{{ 'EMOTIONS_CLOUD' | translate }}</a></li>
                 </ul>
             </li>
             <li ng-class="{active: $state.includes('dashboards')}" class="sr-only">
