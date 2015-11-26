@@ -13,8 +13,10 @@
     "gulp-concat": "^2.6.0"
   },
   "devDependencies": {
+    "chimp": "latest",
+    "express": "^4.13.3",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.1",
-    "chimp": "latest"
+    "http": "0.0.0"
   }
 }
