@@ -1242,13 +1242,12 @@ angular
   .config(config)
   .run(function ($rootScope, $state, $location, SessionService) {
     SessionService.authorize();
-
     // register listener to watch route changes
-    $rootScope.$on( "$stateChangeStart", function(event, next, current) {
-      if (_.isUndefined($rootScope.user) ) {
-        $location.path('/signin');
-      }
-    });
+    //$rootScope.$on( "$stateChangeStart", function(event, next, current) {
+    //  if (_.isUndefined($rootScope.user)) {
+    //    $location.path('/signin');
+    //  }
+    //});
 
     $rootScope.$state = $state;
   });

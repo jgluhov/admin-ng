@@ -3,13 +3,13 @@ function EmotionsIndexController($scope, $sce, $compile, $http, $resource, Const
   $scope.delete = function () {
     console.log('Hello')
   };
-  var languages = 'en,ru,de,fr,es';
+  var languages = 'en,ru,es,de';
 
   $scope.dtOptions = DTOptionsBuilder.newOptions()
     .withOption(
       'ajax', {
-        url: Constants.domains.production + 'emotions_datatable?token=' + Constants.token + '&lang_codes=' + languages,
-        type: 'GET'
+        url: Constants.domains.production + 'emotions_datatable?token=' + Constants.token + '&lang_codes=' + 'ru,es,de',
+        type: 'POST'
       })
     .withOption('rowCallback', rowCallback)
     .withDataProp('data')
@@ -18,26 +18,38 @@ function EmotionsIndexController($scope, $sce, $compile, $http, $resource, Const
     .withPaginationType('full_numbers');
 
   function rowCallback(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+    console.log(nRow);
     return $compile(nRow)(self)
   }
 
-  var length = languages.split(',').length;
+  var length = languages.split(',').length + 1;
 
 
   var columns = [];
 
   _.forEach(languages.split(','), function(lang_code) {
-    columns.push(DTColumnBuilder.newColumn('active').withTitle('Status').notSortable().renderWith(function (data, type, full, meta) {
-      return data === true ? '<span class="badge">active</span>' : '<span class="badge">inactive</span>';
+    columns.push(DTColumnBuilder.newColumn(lang_code).withTitle('Emotion').notSortable().renderWith(function (data, type, full, meta) {
+      if(_.isUndefined(data)) return '';
+      return data.name
     }));
-    columns.push(DTColumnBuilder.newColumn('active').withTitle('Status').notSortable().renderWith(function (data, type, full, meta) {
-      return data === true ? '<span class="badge">active</span>' : '<span class="badge">inactive</span>';
+    columns.push(DTColumnBuilder.newColumn(lang_code).withTitle('Synonyms').notSortable().renderWith(function (data, type, full, meta) {
+      if(_.isUndefined(data)) return '';
+      if(_.isUndefined(data.synonyms)) return '';
+      return _.map(data.synonyms, function (item) {
+          return item.name;
+        }).join(',');
     }));
-    columns.push(DTColumnBuilder.newColumn('active').withTitle('Status').notSortable().renderWith(function (data, type, full, meta) {
-      return data === true ? '<span class="badge">active</span>' : '<span class="badge">inactive</span>';
+    columns.push(DTColumnBuilder.newColumn(lang_code).withTitle('Antonym').notSortable().renderWith(function (data, type, full, meta) {
+      if(_.isUndefined(data)) return '';
+      if(_.isUndefined(data.antonym)) return '';
+      return data.antonym.name;
     }));
-    columns.push(DTColumnBuilder.newColumn('active').withTitle('Status').notSortable().renderWith(function (data, type, full, meta) {
-      return data === true ? '<span class="badge">active</span>' : '<span class="badge">inactive</span>';
+    columns.push(DTColumnBuilder.newColumn(lang_code).withTitle('Syn. for ant.').notSortable().renderWith(function (data, type, full, meta) {
+      if(_.isUndefined(data)) return '';
+      if(_.isUndefined(data.antonymSynonyms)) return '';
+      return _.map(data.antonymSynonyms, function (item) {
+        return item.name;
+      }).join(',');
     }));
   });
 
